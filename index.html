@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>행정정보 통합관리 기본법 · 조항 검색</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">가상 법령 · 조항 검색</p>
+      <h1>행정정보 통합관리 기본법</h1>
+      <p class="hero-copy">제목이나 본문의 키워드로 필요한 조항을 빠르게 찾아보세요.</p>
+
+      <form class="search" role="search" onsubmit="return false;">
+        <label class="sr-only" for="keyword">조항 검색</label>
+        <input id="keyword" type="search" placeholder="예: 공동활용, 개인정보, 데이터 표준" autocomplete="off" />
+        <button id="clearBtn" type="button" aria-label="검색어 지우기">지우기</button>
+      </form>
+      <div class="result-line" aria-live="polite"><strong id="resultCount">결과 0건</strong><span id="statusText">조항 데이터를 불러오는 중입니다.</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="visuals" aria-label="핵심 안내 카드뉴스">
+      <img src="cardnews1.png" alt="기본법 구조: 총칙, 정책, 의무, 표준화, 운영, 보칙" />
+      <img src="cardnews2.png" alt="핵심 정의: 행정정보, 통합관리, 데이터 표준, 공동활용" />
+      <img src="cardnews3.png" alt="국가 책무: 기본계획 수립, 표준 마련 및 공표, 시스템 운영 관리" />
+      <img src="cardnews4.png" alt="정보 보안: 암호화 의무, 접근통제 강화, 사고 즉시 보고" />
+    </section>
+
+    <section class="content-wrap" aria-labelledby="listTitle">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow dark">ARTICLE CARDS</p>
+          <h2 id="listTitle">조항 카드</h2>
+        </div>
+        <p class="hint">제목 또는 본문에 검색어가 포함된 조항만 표시됩니다.</p>
+      </div>
+
+      <div id="cards" class="cards" aria-live="polite"></div>
+      <div id="emptyState" class="empty" hidden>
+        <strong>검색 결과가 없습니다.</strong>
+        <p>다른 키워드로 다시 검색해 보세요.</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="law-card">
+      <div class="law-card-top">
+        <span class="article-no"></span>
+        <h3 class="article-title"></h3>
+      </div>
+      <p class="article-summary"></p>
+      <button class="detail-btn" type="button" aria-expanded="false">본문 보기</button>
+      <div class="article-full" hidden></div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
